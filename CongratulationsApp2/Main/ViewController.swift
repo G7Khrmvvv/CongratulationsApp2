@@ -50,26 +50,30 @@ private extension ViewController {
         
         
         view.addSubview(secondView)
+
         secondView.snp.makeConstraints{
-            $0.width.equalTo(400)
-            $0.height.equalTo(450)
-            $0.center.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(view.snp.leadingMargin).offset(10)
+            $0.trailing.equalTo(view.snp.trailingMargin).inset(10)
+            $0.height.equalTo(420)
         }
+
         header.snp.makeConstraints{
-            $0.top.equalTo(view.snp.topMargin).offset(220)
+            $0.top.equalTo(secondView.snp.topMargin).offset(10)
             $0.centerX.equalToSuperview()
         }
-        
+
         maintext.snp.makeConstraints{
-            $0.top.equalTo(header.snp.bottomMargin).offset(40)
-            $0.leading.equalTo(view.snp.leadingMargin).offset(5)
-            $0.trailing.equalTo(view.snp.trailingMargin).inset(5)
+            $0.top.equalTo(header.snp.bottomMargin).offset(25)
+            $0.leading.equalTo(view.snp.leadingMargin).offset(10)
+            $0.trailing.equalTo(view.snp.trailingMargin).inset(10)
         }
+
         firstButton.snp.makeConstraints {
             $0.top.equalTo(maintext.snp.bottom).offset(40)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(350)
-            $0.height.equalTo(50)
+            $0.leading.equalTo(view.snp.leadingMargin).offset(30)
+            $0.trailing.equalTo(view.snp.trailingMargin).inset(30)
+            $0.height.equalTo(40)
         }
         secondButton.snp.makeConstraints {
             $0.top.equalTo(firstButton.snp.bottomMargin).offset(15)
@@ -92,12 +96,12 @@ private extension ViewController {
         
         maintext.textColor = .secondaryLabel
         maintext.font = UIFont.systemFont(ofSize: 20)
-        maintext.numberOfLines = 8
+        maintext.numberOfLines = 10
         maintext.textAlignment = .center
 
         firstButton.setTitleColor(.white, for: .normal)
         firstButton.backgroundColor = UIColor(red: 92/255, green: 176/255, blue: 117/255, alpha: 1)
-        firstButton.layer.cornerRadius = 25
+        firstButton.layer.cornerRadius = 10
         
         secondButton.setTitleColor(UIColor(red: 92/255, green: 176/255, blue: 117/255, alpha: 1), for: .normal)
         
